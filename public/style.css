@@ -547,14 +547,18 @@ section {
 
 .gallery-track {
   display: flex;
-  gap: 20px;
   animation: scroll-gallery 45s linear infinite;
   width: max-content;
+  will-change: transform;
+}
+
+.gallery-carousel:hover .gallery-track {
+  animation-play-state: paused;
 }
 
 @keyframes scroll-gallery {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .gallery-item {
@@ -565,6 +569,8 @@ section {
   position: relative;
   box-shadow: var(--glass-shadow);
   border: 1px solid var(--glass-border);
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 
 .gallery-item img {
