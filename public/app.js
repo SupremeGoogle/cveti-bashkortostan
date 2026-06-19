@@ -86,11 +86,21 @@ function renderContent(data) {
 
   // 4. О магазине
   if (data.about) {
-    document.getElementById('about-title').textContent = data.about.title;
-    document.getElementById('about-desc1').textContent = data.about.description1;
-    document.getElementById('about-desc2').textContent = data.about.description2;
-    document.getElementById('about-address').textContent = data.about.address;
-    document.getElementById('about-worktime').textContent = data.about.workTime;
+    const titleEl = document.getElementById('about-title');
+    const desc1El = document.getElementById('about-desc1');
+    const desc2El = document.getElementById('about-desc2');
+    const addrEl = document.getElementById('about-address');
+    const addrMobEl = document.getElementById('about-address-mob');
+    const wtEl = document.getElementById('about-worktime');
+    const wtMobEl = document.getElementById('about-worktime-mob');
+
+    if (titleEl) titleEl.textContent = data.about.title;
+    if (desc1El) desc1El.textContent = data.about.description1;
+    if (desc2El) desc2El.textContent = data.about.description2;
+    if (addrEl) addrEl.textContent = data.about.address;
+    if (addrMobEl) addrMobEl.textContent = data.about.address;
+    if (wtEl) wtEl.textContent = data.about.workTime;
+    if (wtMobEl) wtMobEl.textContent = data.about.workTime;
   }
 
   // 5. Галерея

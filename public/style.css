@@ -835,6 +835,10 @@ footer {
   display: none;
 }
 
+.mobile-contacts {
+  display: none !important;
+}
+
 /* --- Адаптивность --- */
 @media (max-width: 1024px) {
   .hero {
@@ -964,7 +968,7 @@ footer {
 
   /* Mobile-optimized hero background */
   .hero {
-    padding-top: 160px;
+    padding-top: 220px !important;
     padding-left: 20px;
     padding-right: 20px;
     background: url('images/hero_mobile_bg.png') no-repeat center center;
@@ -1120,24 +1124,43 @@ footer {
     margin-bottom: 15px !important;
   }
   
-  .contact-details {
-    margin-top: 15px !important;
+  /* Hide desktop contacts, show mobile contacts under the map */
+  .desktop-contacts {
+    display: none !important;
+  }
+
+  .mobile-contacts {
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    gap: 15px !important;
+    gap: 20px !important;
+    margin-top: 25px !important;
   }
   
   .contact-item {
-    justify-content: flex-start !important;
-    text-align: left !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
     width: 100% !important;
-    max-width: 290px !important;
-    gap: 12px !important;
+  }
+  
+  .contact-item-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .contact-item-text h4 {
+    margin-bottom: 4px !important;
   }
   
   .about-map-wrapper {
     height: 280px !important;
     margin-top: 10px !important;
+    width: 100% !important;
   }
   
   /* Compact feedback form on mobile */
