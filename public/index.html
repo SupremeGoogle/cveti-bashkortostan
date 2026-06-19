@@ -23,13 +23,21 @@
       <span class="logo-icon">🌸</span>
       <span>ЦВЕТЫ</span>
     </a>
-    <nav>
+    
+    <!-- Кнопка бургер-меню -->
+    <button class="burger-menu-btn" id="burger-btn" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav id="nav-menu">
       <ul>
-        <li><a href="#hero">Главная</a></li>
-        <li><a href="#catalog">Каталог</a></li>
-        <li><a href="#gallery">Галерея</a></li>
-        <li><a href="#about">О нас</a></li>
-        <li><a href="#feedback">Контакты</a></li>
+        <li><a href="#hero" onclick="closeMobileMenu()">Главная</a></li>
+        <li><a href="#catalog" onclick="closeMobileMenu()">Каталог</a></li>
+        <li><a href="#gallery" onclick="closeMobileMenu()">Галерея</a></li>
+        <li><a href="#about" onclick="closeMobileMenu()">О нас</a></li>
+        <li><a href="#feedback" onclick="closeMobileMenu()">Контакты</a></li>
       </ul>
     </nav>
     <div class="header-contacts">

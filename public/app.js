@@ -219,3 +219,24 @@ function setupHeaderScroll() {
     }
   });
 }
+
+// Функции мобильного меню (бургер)
+function toggleMobileMenu() {
+  const burgerBtn = document.getElementById('burger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if (burgerBtn && navMenu) {
+    burgerBtn.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  }
+}
+
+function closeMobileMenu() {
+  const burgerBtn = document.getElementById('burger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if (burgerBtn && navMenu) {
+    burgerBtn.classList.remove('active');
+    navMenu.classList.remove('active');
+  }
+}
