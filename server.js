@@ -113,10 +113,12 @@ app.listen(PORT, async () => {
     console.warn('ВНИМАНИЕ: Файл public/data.json отсутствует!');
   }
   
-  // Локально очищаем вебхук и запускаем лонг-пулинг для тестирования без внешнего IP
-  if (BOT_TOKEN) {
+  // Локальный лонг-пулинг запускается только при явном указании переменной окружения
+  if (BOT_TOKEN && process.env.LOCAL_POLLING === 'true') {
     console.log('Сброс вебхука Telegram для работы локального лонг-пулинга...');
     await callTelegram('deleteWebhook', { drop_pending_updates: true });
     pollTelegramUpdates();
+  } else if (BOT_TOKEN) {
+    console.log('Локальный лонг-пулинг отключен. Чтобы включить, задайте LOCAL_POLLING=true в файле .env');
   }
 });
