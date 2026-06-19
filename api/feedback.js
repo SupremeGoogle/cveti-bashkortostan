@@ -41,11 +41,18 @@ export default async function handler(req, res) {
       });
     }
 
-    const text = `🌸 *Новая заявка с сайта «Цветы»!*\n\n` +
-                 `👤 *Имя:* ${name}\n` +
-                 `📞 *Телефон:* \`${phone}\`\n` +
-                 `💬 *Сообщение:* ${message || '—'}\n\n` +
-                 `📅 *Время:* ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Ufa' })} (Уфа)`;
+    const escapeHtml = (str) => {
+      return (str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    };
+
+    const text = `🌸 <b>Новая заявка с сайта «Цветы»!</b>\n\n` +
+                 `👤 <b>Имя:</b> ${escapeHtml(name)}\n` +
+                 `📞 <b>Телефон:</b> <code>${escapeHtml(phone)}</code>\n` +
+                 `💬 <b>Сообщение:</b> ${escapeHtml(message || '—')}\n\n` +
+                 `📅 <b>Время:</b> ${new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Yekaterinburg' })} (Уфа)`;
 
     const baseUrl = PROXY_URL ? PROXY_URL.replace(/\/$/, '') : 'https://api.telegram.org';
     const url = `${baseUrl}/bot${BOT_TOKEN}/sendMessage`;
@@ -59,7 +66,7 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             chat_id: admin.chatId,
             text: text,
-            parse_mode: 'Markdown'
+            parse_mode: 'HTML'
           })
         });
         if (response.ok) sentCount++;
