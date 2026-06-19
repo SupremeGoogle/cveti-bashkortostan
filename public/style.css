@@ -967,7 +967,7 @@ footer {
     padding-top: 130px;
     padding-left: 20px;
     padding-right: 20px;
-    background: url('images/hero_mobile_bg.png') no-repeat center bottom;
+    background: url('images/hero_mobile_bg.png') no-repeat center center;
     background-size: cover;
     align-items: flex-start;
     justify-content: center;
@@ -1037,12 +1037,76 @@ footer {
     line-height: 1.35 !important;
   }
 
-  /* Gallery: smaller items on mobile to avoid overflow */
+  /* Gallery: manual horizontal swiping on mobile */
+  .gallery-carousel {
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .gallery-carousel::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+  .gallery-track {
+    animation: none !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+  }
+  
   .gallery-item {
     width: 220px !important;
     height: 280px !important;
     border-radius: 16px !important;
     margin-right: 12px !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* About us: center and shrink on mobile */
+  .about {
+    padding: 30px 5% !important;
+  }
+  
+  .about-container {
+    gap: 20px !important;
+  }
+  
+  .about-info {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .about-info h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .about-info p {
+    font-size: 0.95rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .contact-details {
+    margin-top: 15px !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+  
+  .contact-item {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 290px !important;
+    gap: 12px !important;
+  }
+  
+  .about-map-wrapper {
+    height: 280px !important;
+    margin-top: 10px !important;
   }
   
   /* Compact feedback form on mobile */
