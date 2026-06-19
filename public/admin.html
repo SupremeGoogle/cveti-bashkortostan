@@ -416,8 +416,8 @@
 
     // Заполнение формы данными
     function populateForm(data) {
-      // Hero & О нас
-      document.getElementById('gen-hero-title').value = data.hero?.title || '';
+      const rawTitle = data.hero?.title || '';
+      document.getElementById('gen-hero-title').value = rawTitle.replace(/<span>(.*?)<\/span>/gi, '*$1*');
       document.getElementById('gen-hero-subtitle').value = data.hero?.subtitle || '';
       document.getElementById('gen-about-title').value = data.about?.title || '';
       document.getElementById('gen-about-desc1').value = data.about?.description1 || '';
@@ -633,8 +633,8 @@
       btn.disabled = true;
       btn.textContent = 'Сохранение...';
 
-      // 1. Собираем основную информацию
-      localData.hero.title = document.getElementById('gen-hero-title').value;
+      const displayTitle = document.getElementById('gen-hero-title').value;
+      localData.hero.title = displayTitle.replace(/\*(.*?)\*/g, '<span>$1</span>');
       localData.hero.subtitle = document.getElementById('gen-hero-subtitle').value;
       localData.about.title = document.getElementById('gen-about-title').value;
       localData.about.description1 = document.getElementById('gen-about-desc1').value;
