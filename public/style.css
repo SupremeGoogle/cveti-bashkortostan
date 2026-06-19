@@ -37,8 +37,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background: url('images/site_bg.png') no-repeat center center fixed;
-  background-size: cover;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -221,19 +220,33 @@ nav a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 140px 10% 80px 10%;
-  max-width: 1600px;
-  margin: 0 auto;
-  gap: 50px;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 140px 8% 80px 8%;
+  background: url('images/hero_bg.png') no-repeat center right;
+  background-size: cover;
+  position: relative;
+}
+
+/* Gradient overlay for text readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(245, 247, 250, 0.95) 0%, rgba(245, 247, 250, 0.8) 40%, rgba(245, 247, 250, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-info {
-  max-width: 800px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  z-index: 2;
 }
 
 .hero-tag {
@@ -275,14 +288,14 @@ nav a:hover {
   font-size: 1.1rem;
   color: var(--text-muted);
   margin-bottom: 35px;
-  max-width: 650px;
+  max-width: 550px;
 }
 
 .hero-actions {
   display: flex;
   gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .btn-primary {
@@ -323,84 +336,6 @@ nav a:hover {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.8);
   transform: translateY(-2px);
-}
-
-.hero-showcase {
-  flex: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-main-card {
-  width: 420px;
-  height: 480px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.hero-main-card img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-.hero-card-meta {
-  padding-top: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hero-card-meta h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.hero-card-meta span {
-  font-size: 0.9rem;
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.hero-badge-float {
-  position: absolute;
-  bottom: 50px;
-  left: -40px;
-  padding: 18px 24px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  z-index: 3;
-  width: 260px;
-}
-
-.hero-badge-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffd3b6 0%, #ffaaa5 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-}
-
-.hero-badge-text h4 {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.hero-badge-text p {
-  font-size: 0.75rem;
-  color: var(--text-muted);
 }
 
 /* --- Секции общие стили --- */
@@ -884,23 +819,18 @@ footer {
 /* --- Адаптивность --- */
 @media (max-width: 1024px) {
   .hero {
-    flex-direction: column-reverse;
-    text-align: center;
     padding-top: 160px;
-    gap: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+    background-position: 75% center;
   }
   
+  .hero::before {
+    background: linear-gradient(90deg, rgba(245, 247, 250, 0.95) 0%, rgba(245, 247, 250, 0.85) 60%, rgba(245, 247, 250, 0.3) 100%);
+  }
+
   .hero-info {
-    max-width: 100%;
-  }
-  
-  .hero-info p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .hero-actions {
-    justify-content: center;
+    max-width: 500px;
   }
   
   .about-container {
@@ -924,20 +854,41 @@ footer {
   }
   
   nav {
-    display: none; /* В реальном проекте тут будет бургер-меню */
-  }
-  
-  .hero-info h1 {
-    font-size: 2.6rem;
-  }
-  
-  .hero-main-card {
-    width: 320px;
-    height: 380px;
-  }
-  
-  .hero-badge-float {
     display: none;
+  }
+  
+  .hero {
+    padding-top: 140px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-position: 80% center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .hero::before {
+    background: rgba(245, 247, 250, 0.9);
+  }
+
+  .hero-info {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-info h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-info p {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
   }
   
   section {

@@ -23,14 +23,18 @@ async function loadAndRenderContent() {
 function renderContent(data) {
   // 1. Герой-секция
   if (data.hero) {
-    document.getElementById('hero-title').innerHTML = data.hero.title;
-    document.getElementById('hero-subtitle').textContent = data.hero.subtitle;
+    const heroTitle = document.getElementById('hero-title');
+    const heroSubtitle = document.getElementById('hero-subtitle');
+    if (heroTitle) heroTitle.innerHTML = data.hero.title;
+    if (heroSubtitle) heroSubtitle.textContent = data.hero.subtitle;
     
-    // Если в каталоге свежих цветов есть первая позиция, используем ее на превью
+    // Если в каталоге свежих цветов есть первая позиция, используем ее на превью (если элементы присутствуют)
     const firstFresh = data.catalog?.fresh?.[0];
     if (firstFresh) {
-      document.getElementById('hero-main-img').src = firstFresh.image;
-      document.getElementById('hero-main-title').textContent = firstFresh.name;
+      const heroMainImg = document.getElementById('hero-main-img');
+      const heroMainTitle = document.getElementById('hero-main-title');
+      if (heroMainImg) heroMainImg.src = firstFresh.image;
+      if (heroMainTitle) heroMainTitle.textContent = firstFresh.name;
     }
   }
 

@@ -93,6 +93,7 @@
     .admin-content {
       flex: 3;
       padding: 40px;
+      padding-bottom: 120px; /* Отступ для предотвращения перекрытия нижней панелью сохранения */
     }
     
     .admin-section {
@@ -489,7 +490,7 @@
               <div class="form-group" style="max-width: 250px;">
                 <div class="image-picker-wrapper">
                   <img src="${item.image}" class="image-preview" id="img-prev-${uniqueId}" onerror="this.src='images/roses_red.jpg'">
-                  <button class="btn-upload-file" onclick="triggerImageUpload('${uniqueId}')">Загрузить с ПК</button>
+                  <button class="btn-upload-file" onclick="triggerImageUpload('${uniqueId}')">Загрузить с устройства</button>
                   <input type="file" id="file-input-${uniqueId}" style="display:none;" accept="image/*" onchange="handleImageFile(this, '${uniqueId}')">
                 </div>
               </div>
@@ -538,7 +539,7 @@
               <div class="form-group" style="max-width: 250px;">
                 <div class="image-picker-wrapper">
                   <img src="${item.image}" class="image-preview" id="img-prev-${uniqueId}" onerror="this.src='images/roses_red.jpg'">
-                  <button class="btn-upload-file" onclick="triggerImageUpload('${uniqueId}')">Загрузить с ПК</button>
+                  <button class="btn-upload-file" onclick="triggerImageUpload('${uniqueId}')">Загрузить с устройства</button>
                   <input type="file" id="file-input-${uniqueId}" style="display:none;" accept="image/*" onchange="handleImageFile(this, '${uniqueId}')">
                 </div>
               </div>
@@ -717,7 +718,9 @@
           alert('✨ Все изменения успешно сохранены!\nНовый дизайн сайта вступит в силу через 30–60 секунд (идёт автоматическая сборка на Vercel).');
           imagesQueue = []; // очищаем очередь картинок
         } else {
-          alert(`Ошибка сохранения: ${resData.error || 'Неизвестная ошибка'}`);
+          const errorMsg = resData.error || 'Неизвестная ошибка';
+          const detailsMsg = resData.details ? `\nДетали: ${resData.details}` : '';
+          alert(`Ошибка сохранения: ${errorMsg}${detailsMsg}`);
         }
       } catch (err) {
         alert('Сервер недоступен. Ошибка при отправке изменений.');
