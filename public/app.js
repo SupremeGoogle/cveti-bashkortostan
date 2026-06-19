@@ -39,7 +39,6 @@ function renderContent(data) {
     const grid = document.getElementById('features-grid');
     grid.innerHTML = data.features.map(f => `
       <div class="glass card feature-card glass-card">
-        <div class="feature-icon">${f.icon}</div>
         <h3>${f.title}</h3>
         <p>${f.description}</p>
       </div>
@@ -61,10 +60,6 @@ function renderContent(data) {
           <h3>${item.name}</h3>
           <p>${item.description}</p>
         </div>
-        <div class="product-footer">
-          <span class="product-price">${item.price}</span>
-          <button class="btn-order" onclick="openOrder('${item.name}')">+</button>
-        </div>
       </div>
     `).join('');
 
@@ -80,10 +75,6 @@ function renderContent(data) {
         <div class="product-info">
           <h3>${item.name}</h3>
           <p>${item.description}</p>
-        </div>
-        <div class="product-footer">
-          <span class="product-price">${item.price}</span>
-          <button class="btn-order" onclick="openOrder('${item.name}')">+</button>
         </div>
       </div>
     `).join('');

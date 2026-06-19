@@ -37,7 +37,8 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--bg-main);
+  background: url('images/site_bg.png') no-repeat center center fixed;
+  background-size: cover;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -220,7 +221,8 @@ nav a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   padding: 140px 10% 80px 10%;
   max-width: 1600px;
   margin: 0 auto;
@@ -228,8 +230,10 @@ nav a:hover {
 }
 
 .hero-info {
-  flex: 1;
-  max-width: 600px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-tag {
@@ -271,13 +275,14 @@ nav a:hover {
   font-size: 1.1rem;
   color: var(--text-muted);
   margin-bottom: 35px;
-  max-width: 500px;
+  max-width: 650px;
 }
 
 .hero-actions {
   display: flex;
   gap: 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .btn-primary {
