@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Павильон «Цветы» в Белорецке (ТРК Космос). Свежие розы, хризантемы, горшечные растения и букеты с доставкой. Современный светлый дизайн и высокое качество.">
+  <title>Павильон «Цветы» — г. Белорецк, ТРК Космос</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Фон с плавающими градиентными сферами -->
+  <div class="bg-spheres">
+    <div class="sphere sphere-1"></div>
+    <div class="sphere sphere-2"></div>
+    <div class="sphere sphere-3"></div>
+  </div>
+
+  <!-- Шапка сайта -->
+  <header id="main-header" class="glass">
+    <a href="#" class="logo">
+      <span class="logo-icon">🌸</span>
+      <span>ЦВЕТЫ</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#hero">Главная</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#feedback">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="header-contacts">
+      <a href="#feedback" class="btn-primary btn-header">Заказать букет</a>
+    </div>
+  </header>
+
+  <!-- Герой-секция -->
+  <section id="hero" class="hero">
+    <div class="hero-info">
+      <div class="hero-tag">
+        <span></span> Салон цветов в Белорецке
+      </div>
+      <h1 id="hero-title">Загрузка...</h1>
+      <p id="hero-subtitle">Загрузка информации...</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn-primary">Смотреть каталог ➔</a>
+        <a href="#about" class="btn-secondary">Где мы находимся?</a>
+      </div>
+    </div>
+    
+    <div class="hero-showcase">
+      <div class="hero-main-card glass">
+        <img id="hero-main-img" src="images/roses_red.jpg" alt="Роскошный букет красных роз">
+        <div class="hero-card-meta">
+          <h3 id="hero-main-title">Красные Розы</h3>
+          <span>Свежий срез</span>
+        </div>
+      </div>
+      
+      <div class="hero-badge-float glass">
+        <div class="hero-badge-icon">🚚</div>
+        <div class="hero-badge-text">
+          <h4>Быстрая доставка</h4>
+          <p>По Белорецку и району</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section id="features" class="features">
+    <div class="section-header">
+      <span class="section-tag">почему мы</span>
+      <h2 class="section-title">Качество в каждом лепестке</h2>
+      <p class="section-subtitle">Мы заботимся о том, чтобы наши цветы радовали вас как можно дольше, обеспечивая премиальный сервис.</p>
+    </div>
+    
+    <div id="features-grid" class="features-grid">
+      <!-- Сюда динамически рендерятся преимущества -->
+    </div>
+  </section>
+
+  <!-- Каталог товаров -->
+  <section id="catalog" class="catalog">
+    <div class="section-header">
+      <span class="section-tag">ассортимент</span>
+      <h2 class="section-title">Наш цветочный каталог</h2>
+      <p class="section-subtitle">Выберите идеальный подарок для своих близких. Все позиции доступны для заказа.</p>
+    </div>
+    
+    <div class="catalog-tabs">
+      <button id="btn-fresh" class="tab-btn active" onclick="switchCategory('fresh')">Свежие букеты</button>
+      <button id="btn-potted" class="tab-btn" onclick="switchCategory('potted')">Горшечные растения</button>
+    </div>
+    
+    <!-- Сетка срезанных цветов (динамическая) -->
+    <div id="grid-fresh" class="catalog-grid"></div>
+    
+    <!-- Сетка горшечных растений (динамическая) -->
+    <div id="grid-potted" class="catalog-grid" style="display: none;"></div>
+  </section>
+
+  <!-- Интерактивная галерея -->
+  <section id="gallery" class="gallery">
+    <div class="section-header">
+      <span class="section-tag">моменты</span>
+      <h2 class="section-title">Галерея наших цветов</h2>
+      <p class="section-subtitle">Живые кадры из нашего магазина. Каждая композиция создается с душой.</p>
+    </div>
+    
+    <div class="gallery-carousel">
+      <div id="gallery-track" class="gallery-track">
+        <!-- Сюда динамически рендерятся элементы галереи -->
+      </div>
+    </div>
+  </section>
+
+  <!-- О магазине / Яндекс.Карта -->
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-info">
+        <span class="section-tag">как нас найти</span>
+        <h2 id="about-title">Загрузка...</h2>
+        <p id="about-desc1">...</p>
+        <p id="about-desc2">...</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <h4>Наш адрес</h4>
+              <p id="about-address">...</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-item-icon">⏰</div>
+            <div class="contact-item-text">
+              <h4>Режим работы</h4>
+              <p id="about-worktime">...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Стеклянная Яндекс Карта -->
+      <div class="about-map-wrapper glass">
+        <iframe class="about-map" src="https://yandex.ru/map-widget/v1/?ll=58.406981%2C53.974955&mode=search&oid=1658428807&ol=biz&z=17" allowfullscreen="true" style="position:relative;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Обратная связь -->
+  <section id="feedback" class="feedback">
+    <div class="feedback-container glass">
+      <div class="feedback-details">
+        <div>
+          <span class="section-tag">заявка флористу</span>
+          <h2>Остались вопросы или хотите сделать заказ?</h2>
+          <p>Заполните форму обратной связи. Наш флорист свяжется с вами в течение 10 минут, уточнит все пожелания и поможет оформить заказ.</p>
+        </div>
+        
+        <div class="telegram-badge">
+          📢 <strong>Уведомления администраторам:</strong><br>
+          Администраторы сайта могут зарегистрироваться в Telegram-боте, чтобы мгновенно получать заявки. <br>
+          Отправьте боту команду <code>/cveti062026</code>.
+        </div>
+      </div>
+      
+      <div class="feedback-form-wrapper">
+        <form id="orderForm" class="feedback-form" onsubmit="sendFeedback(event)">
+          <div class="form-group">
+            <label for="form-name">Ваше имя</label>
+            <input type="text" id="form-name" placeholder="Например, Анна" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="form-phone">Номер телефона</label>
+            <input type="tel" id="form-phone" placeholder="+7 (999) 123-45-67" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="form-msg">Пожелания или выбранный цветок</label>
+            <textarea id="form-msg" rows="4" placeholder="Напишите здесь название цветов, количество или ваши пожелания по букету..."></textarea>
+          </div>
+          
+          <div id="form-status-msg" class="form-status"></div>
+          
+          <button type="submit" class="btn-primary form-submit-btn">Отправить заявку ➔</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-copy">
+        © 2026 Цветочный павильон «Цветы». Республика Башкортостан, г. Белорецк.
+      </div>
+      <div class="footer-dev">
+        Разработано с ❤️ и Glassmorphism
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
